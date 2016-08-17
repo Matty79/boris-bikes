@@ -18,4 +18,10 @@ describe DockingStation do
     expect{subject.release_bike}.to raise_error(RuntimeError)
   end
 
+  it 'should raise error if the dock is full' do
+    bike = Bike.new
+    subject.dock(bike)
+    expect{subject.dock(bike)}.to raise_error(RuntimeError)
+  end
+
 end

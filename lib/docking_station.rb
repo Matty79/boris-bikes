@@ -16,6 +16,10 @@ class DockingStation
   end
 
   def dock(bike_object)
-    @bikes << bike_object
-  end
+    if !@bikes.empty?
+      raise "There is already a bike"
+    else
+        @bikes << bike_object
+    end
+  end 
 end
