@@ -16,10 +16,10 @@ class DockingStation
   end
 
   def dock(bike_object)
-    if !@bikes.empty?
-      raise "There is already a bike"
+    if @bikes.length >= 20
+      raise "Docking station is full"
     else
         @bikes << bike_object
     end
-  end 
+  end
 end
