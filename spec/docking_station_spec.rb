@@ -24,4 +24,14 @@ describe DockingStation do
     expect{subject.dock(Bike.new)}.to raise_error(RuntimeError)
   end
 
+  it 'can be initialized with custom capacity' do
+    station = DockingStation.new(30)
+    expect(station.capacity).to eq(30)
+  end
+
+  it 'will default to 20 capacity' do
+    station = DockingStation.new
+    expect(station.capacity).to eq(20)
+  end
+
 end
