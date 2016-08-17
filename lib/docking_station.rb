@@ -10,10 +10,10 @@ class DockingStation
   end
 
   def release_bike
-    if empty?
-      raise 'There are no bikes available'
+    if bike=find_working_bike #returns nil if no bikes working or empty.
+      @bikes.delete(bike)
     else
-      @bikes.pop
+      raise 'There are no working bikes available'
     end
   end
 
@@ -25,14 +25,13 @@ class DockingStation
     end
   end
 
-private
+  private
 
-def full?
-  @bikes.length >= DEFAULT_CAPACITY
-end
+  def find_working_bike
+    working_bike=@bikes.find(&:working?)
+  end
 
-def empty?
-  @bikes.empty?
-end
-
+  def full?
+    @bikes.length >=  @capacity
+  end
 end
